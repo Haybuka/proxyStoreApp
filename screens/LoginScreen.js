@@ -3,21 +3,29 @@ import { Pressable, Text, View, ScrollView } from 'react-native';
 import AuthHeader from '../components/AuthHeader';
 import ProxyInput from '../components/ProxyInput';
 import AuthFooter from '../components/AuthFooter';
-import { useForm, Controller } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import ProxyButton from '../components/ProxyButton';
 import ProxyController from '../components/form/ProxyController';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const zodSchema = z.object({
+  email: z.string("Email is required").email('Email format is not valid'),
+  password: z.string("Password is required").min(4, "Password must be greater than 4"),
+});
 
 function LoginScreen({ navigation }) {
   const {
     control,
+    reset,
     handleSubmit,
   } = useForm({
     defaultValues: {
       email: "",
       password: ""
     },
-
+    resolver: zodResolver(zodSchema)
   })
 
 
@@ -27,6 +35,7 @@ function LoginScreen({ navigation }) {
 
   const handleLogin = (data) => {
     console.log("logging in", data)
+    reset()
   }
 
   const handleSignupRedirect = () => {
@@ -60,15 +69,6 @@ function LoginScreen({ navigation }) {
             icon={'eye'}
             name={'password'}
             secureTextEntry
-            control={control}
-          />
-          <ProxyController
-            title="phone"
-            placeholder={'phone number'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            name={'phone'}
-            keyboardType="numeric"
             control={control}
           />
           <Pressable onPress={handleForgetPassword}>

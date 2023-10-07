@@ -9,18 +9,26 @@ function ProxyController({ control, name, title, ...rest }) {
     <View>
       <Controller
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({ field: { onChange, onBlur, value }, fieldState: { error, isDirty, isTouched } }) => {
 
-          <ProxyInput
-            title={title}
-            autoCorrect={false}
-            {...rest}
-            name={name}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-          />
-        )}
+          return (
+            (
+
+              <>
+                <ProxyInput
+                  title={title}
+                  autoCorrect={false}
+                  {...rest}
+                  name={name}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                />
+                {(error) && <Text className="text-red-600">{error?.message}</Text>}
+              </>
+            )
+          )
+        }}
 
         name={name}
       />

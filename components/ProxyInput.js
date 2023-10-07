@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { EyeIcon, EyeSlashIcon } from "react-native-heroicons/outline";
 
-function ProxyInput({ title, name, icon, ...rest }) {
+function ProxyInput({ title, icon, ...rest }) {
   const [isVisible, setIsVisible] = useState(false)
 
   return (
     <View className={`border border-gray-200 rounded-md px-2 py-3 my-3`}>
-      <Text>{title}</Text>
+      <Text className="capitalize">{title}</Text>
       <View className="flex-row items-center">
         <TextInput
           className="flex-1"
+
           {...rest}
         />
         {

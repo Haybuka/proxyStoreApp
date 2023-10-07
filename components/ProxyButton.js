@@ -4,9 +4,9 @@ import colors from '../utils/colors';
 import { useForm, Controller } from "react-hook-form"
 
 function ProxyButton({ title, handlePress }) {
-  const { handleSubmit } = useForm()
+  const { handleSubmit, } = useForm()
   return (
-    <TouchableOpacity onPress={handleSubmit(handlePress)} className={`py-3 mt-10 rounded-md bg-[${colors.primary}]`}>
+    <TouchableOpacity onPress={handleSubmit(handlePress)} className={`py-3 mt-6 rounded-md bg-[${colors.primary}]`}>
       <Text className="text-white text-center">{title}</Text>
     </TouchableOpacity>
   );

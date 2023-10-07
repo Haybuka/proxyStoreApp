@@ -1,6 +1,5 @@
 
 import { Pressable, Text, View } from 'react-native';
-import ProxyButton from './ProxyButton';
 
 function AuthFooter({ items }) {
 

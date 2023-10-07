@@ -1,17 +1,42 @@
 import React from 'react';
 import { View, StyleSheet, ImageBackground, TouchableOpacity, Text } from 'react-native';
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
+import { useForm } from "react-hook-form"
 
-import ProxyInput from '../components/ProxyInput';
 import AuthFooter from '../components/AuthFooter';
 import { useNavigation } from '@react-navigation/native';
+import ProxyController from '../components/form/ProxyController';
+import ProxyButton from '../components/ProxyButton';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const zodSchema = z.object({
+  // username: z.string().nonempty('Zod username is required'),
+  // password: z.string().nonempty('Zod password is required'),
+  email: z
+    .string("Email is required")
+    .email('Email format is not valid'),
+});
 
 function ResetScreen({ }) {
-
+  const {
+    control,
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      email: ""
+    },
+    resolver: zodResolver(zodSchema)
+  })
   const navigation = useNavigation()
 
   const footerItems = {
     btnText: "Reset",
+  }
+
+  const handleReset = (data) => {
+    console.log("logging in", data)
   }
 
   return (
@@ -33,7 +58,8 @@ function ResetScreen({ }) {
             <Text className={`my-2 text-black`}>Kindly provide your registered email address</Text>
 
           </View>
-          <ProxyInput
+
+          <ProxyController
             title="Email Address"
             placeholder={'Johndoe@email.com'}
             autoCapitalize="none"
@@ -41,9 +67,11 @@ function ResetScreen({ }) {
             keyboardType="email-address"
             textContentType="emailAddress"
             name={'email'}
+            control={control}
           />
-
         </View>
+        <ProxyButton title={"Reset"} handlePress={handleSubmit(handleReset)} />
+
         <AuthFooter items={footerItems} />
 
       </View>
