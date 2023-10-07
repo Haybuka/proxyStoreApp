@@ -8,7 +8,7 @@ import AccountScreen from '../screens/AccountScreen';
 import BottomTabButton from './BottomTabButton';
 const Tab = createBottomTabNavigator();
 
-function TabNavigator() {
+function AppNavigator() {
 
   const dimension = useWindowDimensions()
   return (
@@ -37,22 +37,25 @@ function TabNavigator() {
         }}
 
     >
-      <Tab.Screen name="Home" component={AuthNavigator} options={{
+      <Tab.Screen name="Auth" component={AuthNavigator} options={{
         headerShown: false,
         tabBarItemStyle: {
-          display: 'none'
+          display: 'none',
+        },
+        tabBarStyle: {
+          display: "none"
         }
 
       }} />
       <Tab.Screen
-        name="Root"
+        name="Home"
         component={HomeScreen}
         options={({ navigation, route }) => ({
 
           tabBarButton: (props) => {
 
             return (
-              <BottomTabButton icon={'cart'} onPress={() => navigation.navigate("Root")} />
+              <BottomTabButton icon={'cart'} onPress={() => navigation.navigate("Home")} />
             )
           },
           tabBarActiveBackgroundColor: "red"
@@ -90,5 +93,5 @@ function TabNavigator() {
   );
 }
 
-export default TabNavigator
+export default AppNavigator
 

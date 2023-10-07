@@ -34,7 +34,7 @@ function LoginScreen({ navigation }) {
 
   const handleLogin = (data) => {
     console.log("logging in", data)
-    navigation.navigate("Root")
+    navigation.navigate("Home")
     reset()
   }
 
