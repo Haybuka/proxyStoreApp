@@ -6,6 +6,23 @@ import AuthFooter from '../components/AuthFooter';
 import ProxyController from '../components/form/ProxyController';
 import { useForm } from "react-hook-form"
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+
+const zodSchema = z.object({
+  name: z.string().min(2, "Name is too short"),
+  email: z.string("Email is required").email('Email format is not valid'),
+  password: z.string("Password is required").min(4, "Password must be greater than 4"),
+  password2: z.string("Password is required").min(4, "Password must be greater than 4"),
+
+}).refine(
+  (data) => data.password === data.password2, {
+  message: 'Passwords dont match',
+  path: ["password2"]
+}
+)
+
 function SignupScreen({ navigation }) {
   const {
     control,
@@ -17,7 +34,7 @@ function SignupScreen({ navigation }) {
       password2: "",
       name: ""
     },
-
+    resolver: zodResolver(zodSchema)
   })
 
   const handleSignup = (data) => {

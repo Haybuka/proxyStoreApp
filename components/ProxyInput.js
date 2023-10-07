@@ -6,7 +6,7 @@ function ProxyInput({ title, icon, ...rest }) {
   const [isVisible, setIsVisible] = useState(false)
 
   return (
-    <View className={`border border-gray-200 rounded-md px-2 py-3 my-3`}>
+    <View className={`border border-gray-200 rounded-md px-2 py-3 mb-1`}>
       <Text className="capitalize">{title}</Text>
       <View className="flex-row items-center">
         <TextInput

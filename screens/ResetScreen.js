@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground, TouchableOpacity, Text } from 'react-native';
+import { View, ImageBackground, TouchableOpacity, Text } from 'react-native';
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
 import { useForm } from "react-hook-form"
 
@@ -12,8 +12,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
 const zodSchema = z.object({
-  // username: z.string().nonempty('Zod username is required'),
-  // password: z.string().nonempty('Zod password is required'),
   email: z
     .string("Email is required")
     .email('Email format is not valid'),
@@ -79,8 +77,6 @@ function ResetScreen({ }) {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {}
-});
+
 
 export default ResetScreen;

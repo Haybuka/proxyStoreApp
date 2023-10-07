@@ -1,7 +1,6 @@
 import React from 'react';
 import { Pressable, Text, View, ScrollView } from 'react-native';
 import AuthHeader from '../components/AuthHeader';
-import ProxyInput from '../components/ProxyInput';
 import AuthFooter from '../components/AuthFooter';
 import { useForm } from "react-hook-form"
 import ProxyButton from '../components/ProxyButton';
@@ -35,6 +34,7 @@ function LoginScreen({ navigation }) {
 
   const handleLogin = (data) => {
     console.log("logging in", data)
+    navigation.navigate("Root")
     reset()
   }
 

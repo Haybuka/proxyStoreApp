@@ -8,7 +8,7 @@ function AuthHeader({ title, description, handleBackPress }) {
   const navigation = useNavigation()
   return (
     <View className={`pb-6 h-56 justify-end  bg-[#03041E]`}>
-      <ImageBackground resizeMode='cover' source={require("../assets/Auth_bg.png")} className={`h-full px-4  bg-repeat  justify-end`}>
+      <ImageBackground imageStyle={{ resizeMode: 'cover', objectFit: 'fill' }} source={require("../assets/Auth_bg.png")} className={`h-full px-4  justify-end`}>
 
         <TouchableOpacity className="mb-8" onPress={navigation.goBack}>
           <ArrowLeftIcon size={25} color={'#fff'} />
