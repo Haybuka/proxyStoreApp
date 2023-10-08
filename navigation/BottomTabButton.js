@@ -1,18 +1,34 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { SvgUri } from 'react-native-svg';
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import Profile from '../assets/icon/navigation/Profile';
+import Transaction from '../assets/icon/navigation/Transaction';
+import Home from '../assets/icon/navigation/Home';
 
-function BottomTabButton({ onPress, icon }) {
+function BottomTabButton({ onPress, icon, focused }) {
+
+  const selectSvg = (icon) => {
+    switch (icon) {
+      case "home":
+
+        return <Home focused={true} />
+      case "transaction":
+
+        return <Transaction focused={true} />
+
+      case "profile":
+
+        return <Profile focused={true} />
+
+      default:
+        break;
+    }
+  }
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <MaterialCommunityIcons name={icon} size={28} color={"white"} />
-      {/* <SvgUri
-        width="100%"
-        height="100%"
-        
-        uri={require("../assets/profile.svg")}
-      /> */}
+      {
+        selectSvg(icon)
+      }
+
 
 
     </TouchableOpacity>
@@ -21,15 +37,12 @@ function BottomTabButton({ onPress, icon }) {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "red",
     height: 40,
     width: 40,
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 20,
-    // marginTop: 3
-    // flex: 1
   }
 });
 

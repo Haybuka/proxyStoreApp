@@ -1,40 +1,33 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text, View, useWindowDimensions } from 'react-native';
+import BottomTabButton from './BottomTabButton';
+import { useIsFocused, getFocusedRouteNameFromRoute, useNavigationState } from '@react-navigation/native';
+
 import AuthNavigator from './AuthNavigator';
 import HomeScreen from '../screens/HomeScreen';
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Text, View, useWindowDimensions } from 'react-native';
 import TransactionsScreen from '../screens/TransactionsScreen';
 import AccountScreen from '../screens/AccountScreen';
-import BottomTabButton from './BottomTabButton';
+import navScreenOptions from '../utils/navScreenOptions';
+
 const Tab = createBottomTabNavigator();
 
 function AppNavigator() {
 
-  const dimension = useWindowDimensions()
   return (
-    <Tab.Navigator initialRouteName='Root'
+    <Tab.Navigator initialRouteName='Account'
 
       screenOptions={
         {
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: 'white',
-          tabBarActiveBackgroundColor: "#0D5FFF",
-          tabBarStyle: {
-            width: 250,
-            height: 70,
-            borderRadius: 150,
-            alignSelf: 'center',
-            alignItems: "center",
-            backgroundColor: '#03041E',
-            borderWidth: 1,
-            flexDirection: "row",
-            borderColor: "white",
-            marginBottom: 10,
-            overflow: "hidden",
-            // elevation: 2
+          ...navScreenOptions,
+          tabBarItemStyle: {
+            justifyContent: "center",
+            backgroundColor: "red",
+            alignSelf: "center"
           },
-          headerShown: false
-        }}
+          // navigationBarHidden: true
+
+        }
+      }
 
     >
       <Tab.Screen name="Auth" component={AuthNavigator} options={{
@@ -53,9 +46,8 @@ function AppNavigator() {
         options={({ navigation, route }) => ({
 
           tabBarButton: (props) => {
-
             return (
-              <BottomTabButton icon={'cart'} onPress={() => navigation.navigate("Home")} />
+              <BottomTabButton focused={false} icon={'home'} onPress={() => navigation.navigate("Home")} />
             )
           },
           tabBarActiveBackgroundColor: "red"
@@ -69,9 +61,8 @@ function AppNavigator() {
         component={TransactionsScreen}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
-            console.log(route)
             return (
-              <BottomTabButton icon={'receipt'} onPress={() => navigation.navigate("Transactions")} />
+              <BottomTabButton icon={'transaction'} onPress={() => navigation.navigate("Transactions")} />
             )
           }
         })}
@@ -82,9 +73,8 @@ function AppNavigator() {
         component={AccountScreen}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
-            console.log({ props })
             return (
-              <BottomTabButton icon={'account'} onPress={() => navigation.navigate("Account")} />
+              <BottomTabButton icon={'profile'} onPress={() => navigation.navigate("Account")} />
             )
           }
         })}

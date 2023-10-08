@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Screen from '../components/Screen';
-
+import AccountHeader from '../components/Account/Header'
 function AccountScreen(props) {
   return (
-    <Screen>
-      <Text>Account</Text>
-    </Screen>
+    <View className="flex-1 bg-white">
+      <AccountHeader />
+
+    </View>
   );
 }
 
