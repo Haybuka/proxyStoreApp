@@ -1,18 +1,24 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, View, useWindowDimensions } from 'react-native';
 import BottomTabButton from './BottomTabButton';
-import { useIsFocused, getFocusedRouteNameFromRoute, useNavigationState } from '@react-navigation/native';
+import { useIsFocused, getFocusedRouteNameFromRoute, useNavigationState, useNavigation } from '@react-navigation/native';
 
 import AuthNavigator from './AuthNavigator';
 import HomeScreen from '../screens/HomeScreen';
 import TransactionsScreen from '../screens/TransactionsScreen';
 import AccountScreen from '../screens/AccountScreen';
 import navScreenOptions from '../utils/navScreenOptions';
+import { useState } from 'react';
 
 const Tab = createBottomTabNavigator();
 
 function AppNavigator() {
-
+  const [currentScreen, setCurrentScreen] = useState("Home")
+  const navigation = useNavigation()
+  const handleNavigation = (name) => {
+    navigation.navigate(name)
+    setCurrentScreen(name)
+  }
   return (
     <Tab.Navigator initialRouteName='Account'
 
@@ -46,8 +52,10 @@ function AppNavigator() {
         options={({ navigation, route }) => ({
 
           tabBarButton: (props) => {
+            const focused = (route.name === currentScreen)
+
             return (
-              <BottomTabButton focused={false} icon={'home'} onPress={() => navigation.navigate("Home")} />
+              <BottomTabButton focused={focused} icon={'home'} onPress={() => handleNavigation(route.name)} />
             )
           },
           tabBarActiveBackgroundColor: "red"
@@ -61,8 +69,9 @@ function AppNavigator() {
         component={TransactionsScreen}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
+            const focused = (route.name === currentScreen)
             return (
-              <BottomTabButton icon={'transaction'} onPress={() => navigation.navigate("Transactions")} />
+              <BottomTabButton focused={focused} icon={'transaction'} onPress={() => handleNavigation(route.name)} />
             )
           }
         })}
@@ -73,8 +82,9 @@ function AppNavigator() {
         component={AccountScreen}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
+            const focused = (route.name === currentScreen)
             return (
-              <BottomTabButton icon={'profile'} onPress={() => navigation.navigate("Account")} />
+              <BottomTabButton focused={focused} icon={'profile'} onPress={() => handleNavigation(route.name)} />
             )
           }
         })}

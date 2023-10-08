@@ -1,61 +1,62 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 import Screen from '../components/Screen'
+import TransactionList from '../components/Transaction/TransactionList'
 const transactions = [
   {
     name: "Electricity",
     amount: 3000,
     date: "12.03.2021",
-    icon: "",
+    icon: "electricity",
     id: 1
   },
   {
     name: "tithes & offering",
     amount: 1000,
     date: "10.13.2022",
-    icon: "",
+    icon: "church",
     id: 2
   },
   {
     name: "Electricity",
     amount: 5000,
     date: "12.03.2021",
-    icon: "",
+    icon: "electricity",
     id: 3
   },
   {
-    name: "Electricity",
+    name: "Water",
     amount: 12000,
     date: "12.03.2021",
-    icon: "",
+    icon: "water",
     id: 4
   },
   {
     name: "Electricity",
     amount: 12000,
     date: "12.03.2021",
-    icon: "",
+    icon: "electricity",
     id: 5
   },
   {
     name: "tithes & offering",
     amount: 1000,
     date: "10.13.2022",
-    icon: "",
+    icon: "church",
     id: 6
   },
   {
-    name: "Electricity",
+    name: "Fuel",
     amount: 7000,
     date: "12.03.2021",
-    icon: "",
+    icon: "fuel",
     id: 7
   },
   {
-    name: "tithes & offering",
+    name: "Barbing",
     amount: 1000,
     date: "10.13.2022",
-    icon: "",
+    icon: "lifestyle",
     id: 8
   },
 ]
@@ -63,9 +64,7 @@ const transactions = [
 
 const TransactionsScreen = () => {
 
-  const currencyFormat = (amount = 0, currency = 'NGN ') => {
-    return currency + amount?.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+
   return (
     <View className="flex-1 bg-white">
       <View className="h-[148px] bg-[#F7F9FF] justify-center items-center border-b-2 border-gray-100">
@@ -79,16 +78,7 @@ const TransactionsScreen = () => {
           keyExtractor={(item) => item.id.toString()}
 
           renderItem={({ item }) => (
-            <View className="flex-row py-6">
-              <View className="flex-1 flex-row items-start">
-                <View className="w-10 h-10 bg-gray-200 rounded-full mr-3"></View>
-                <View className="">
-                  <Text className="text-lg mt-0 pt-0 font-semibold">{currencyFormat(item.amount)}</Text>
-                  <Text className="text-gray-400 capitalize text-[14px] tracking-wider">{item.name}</Text>
-                </View>
-              </View>
-              <Text>{item.date}</Text>
-            </View>
+            <TransactionList key={item.id} item={item} />
           )}
         />
       </View>

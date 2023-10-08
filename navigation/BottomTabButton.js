@@ -10,14 +10,14 @@ function BottomTabButton({ onPress, icon, focused }) {
     switch (icon) {
       case "home":
 
-        return <Home focused={true} />
+        return <Home focused={focused} />
       case "transaction":
 
-        return <Transaction focused={true} />
+        return <Transaction focused={focused} />
 
       case "profile":
 
-        return <Profile focused={true} />
+        return <Profile focused={focused} />
 
       default:
         break;
