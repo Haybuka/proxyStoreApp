@@ -4,10 +4,36 @@ import Screen from '../components/Screen';
 import ArrowRight from '../assets/icon/ArrowRight';
 import Camera from '../assets/icon/account/Camera';
 import { useNavigation } from '@react-navigation/native';
+
+import { useForm } from "react-hook-form"
+
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import ProxyController from '../components/form/ProxyController';
 import ProxyButton from '../components/ProxyButton';
+
+const zodSchema = z.object({
+  email: z.string("Email is required").email('Email format is not valid'),
+  username: z.string().min(2, "Name is too short"),
+});
+
 function ProfileScreen(props) {
   const navigation = useNavigation()
+
+  const {
+    control,
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      username: ""
+    },
+    resolver: zodResolver(zodSchema)
+  })
+  const handlePasswordChange = (data) => {
+    console.log("saved", data)
+  }
   const handleBackPress = () => {
     navigation.goBack();
   }
@@ -32,33 +58,22 @@ function ProfileScreen(props) {
         <View className="py-6">
 
           <ProxyController
-            title="Current password"
-            placeholder={'password'}
+            title="Full Name"
+            placeholder={'John Doe'}
             autoCapitalize="none"
             autoCorrect={false}
-            icon={'eye'}
-            name={'current_password'}
+            name={'username'}
             secureTextEntry
             control={control}
           />
           <ProxyController
-            title="Password"
-            placeholder={'password'}
+            title="Email Address"
+            placeholder={'Johndoe@email.com'}
             autoCapitalize="none"
             autoCorrect={false}
-            icon={'eye'}
-            name={'password'}
-            secureTextEntry
-            control={control}
-          />
-          <ProxyController
-            title="Re-enter Password"
-            placeholder={'password'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon={'eye'}
-            name={'password2'}
-            secureTextEntry
+            keyboardType="email-address"
+            textContentType="emailAddress"
+            name={'email'}
             control={control}
           />
         </View>

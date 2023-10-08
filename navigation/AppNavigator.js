@@ -22,7 +22,7 @@ function AppNavigator() {
     setCurrentScreen(name)
   }
   return (
-    <Tab.Navigator initialRouteName='Auth'
+    <Tab.Navigator initialRouteName='Account'
 
       screenOptions={
         {
