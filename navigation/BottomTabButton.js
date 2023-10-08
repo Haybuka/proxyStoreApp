@@ -4,7 +4,7 @@ import Profile from '../assets/icon/navigation/Profile';
 import Transaction from '../assets/icon/navigation/Transaction';
 import Home from '../assets/icon/navigation/Home';
 
-function BottomTabButton({ onPress, icon, focused }) {
+function BottomTabButton({ onPress, icon, focused, mh = 15 }) {
 
   const selectSvg = (icon) => {
     switch (icon) {
@@ -24,7 +24,7 @@ function BottomTabButton({ onPress, icon, focused }) {
     }
   }
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={[styles.container, { marginHorizontal: mh }]}>
       {
         selectSvg(icon)
       }
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 20,
   }
 });
 

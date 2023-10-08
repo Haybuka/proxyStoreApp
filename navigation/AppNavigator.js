@@ -6,21 +6,23 @@ import { useIsFocused, getFocusedRouteNameFromRoute, useNavigationState, useNavi
 import AuthNavigator from './AuthNavigator';
 import HomeScreen from '../screens/HomeScreen';
 import TransactionsScreen from '../screens/TransactionsScreen';
-import AccountScreen from '../screens/AccountScreen';
 import navScreenOptions from '../utils/navScreenOptions';
 import { useState } from 'react';
+import AccountNavigator from './AccountNavigator';
 
 const Tab = createBottomTabNavigator();
 
 function AppNavigator() {
   const [currentScreen, setCurrentScreen] = useState("Home")
+  const focusedRoute = useNavigationState(route => route?.routes)
+  console.log({ focusedRoute })
   const navigation = useNavigation()
   const handleNavigation = (name) => {
     navigation.navigate(name)
     setCurrentScreen(name)
   }
   return (
-    <Tab.Navigator initialRouteName='Account'
+    <Tab.Navigator initialRouteName='Auth'
 
       screenOptions={
         {
@@ -53,7 +55,6 @@ function AppNavigator() {
 
           tabBarButton: (props) => {
             const focused = (route.name === currentScreen)
-
             return (
               <BottomTabButton focused={focused} icon={'home'} onPress={() => handleNavigation(route.name)} />
             )
@@ -71,7 +72,7 @@ function AppNavigator() {
           tabBarButton: (props) => {
             const focused = (route.name === currentScreen)
             return (
-              <BottomTabButton focused={focused} icon={'transaction'} onPress={() => handleNavigation(route.name)} />
+              <BottomTabButton mh={25} focused={focused} icon={'transaction'} onPress={() => handleNavigation(route.name)} />
             )
           }
         })}
@@ -79,10 +80,12 @@ function AppNavigator() {
 
       <Tab.Screen
         name="Account"
-        component={AccountScreen}
+        component={AccountNavigator}
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
             const focused = (route.name === currentScreen)
+            console.log(route.name)
+
             return (
               <BottomTabButton focused={focused} icon={'profile'} onPress={() => handleNavigation(route.name)} />
             )

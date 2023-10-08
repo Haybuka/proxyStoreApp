@@ -50,7 +50,7 @@ function LoginScreen({ navigation }) {
     <ScrollView>
       <AuthHeader title={'Login'} description={`Login to your account. We'd love to have you on board!`} />
       <View className="px-2">
-        <View className="py-6">
+        <View className="py-4">
           <ProxyController
             title="Email Address"
             placeholder={'Johndoe@email.com'}
@@ -71,7 +71,7 @@ function LoginScreen({ navigation }) {
             secureTextEntry
             control={control}
           />
-          <Pressable onPress={handleForgetPassword}>
+          <Pressable className="mb-6" onPress={handleForgetPassword}>
             <Text className="text-[#0D5FFF] font-semibold">Forgot Password?</Text>
           </Pressable>
 

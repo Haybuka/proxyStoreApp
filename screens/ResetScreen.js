@@ -50,7 +50,7 @@ function ResetScreen({ }) {
 
       <View className="px-2">
 
-        <View className="py-6">
+        <View className="py-4">
           <View className="my-3">
             <Text className="text-black text-2xl font-semibold">Reset password</Text>
             <Text className={`my-2 text-black`}>Kindly provide your registered email address</Text>

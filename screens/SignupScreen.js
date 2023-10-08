@@ -56,7 +56,7 @@ function SignupScreen({ navigation }) {
     <ScrollView >
       <AuthHeader title={'Sign Up'} description={'Create an account to get started'} />
       <View className="px-2">
-        <View className="py-6">
+        <View className="py-4">
           <ProxyController
             title="Full Name"
             placeholder={'John doe'}
