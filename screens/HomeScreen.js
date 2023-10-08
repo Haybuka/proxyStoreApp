@@ -2,6 +2,16 @@ import React from 'react';
 import { View, StyleSheet, Text, ImageBackground, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import Screen from '../components/Screen';
 import { MaterialCommunityIcons } from '@expo/vector-icons/'
+import Scissors from '../assets/icon/home/Scissors';
+import Fire from '../assets/icon/home/Fire';
+import Bus from '../assets/icon/home/Bus';
+import Gas from '../assets/icon/home/Gas';
+import Lightning from '../assets/icon/home/Lightning';
+import Data from '../assets/icon/home/Data';
+import Drop from '../assets/icon/home/Drop';
+import Box from '../assets/icon/home/Box';
+import UtilityCard from '../components/Home/UtilityCard';
+
 
 
 
@@ -9,43 +19,49 @@ const Utils = [
   {
     name: "Transportation",
     label: "Transportation",
-    image: "",
+    icon: "transport",
     id: 1
   },
   {
     name: "Gas",
     label: "Cooking Gas",
-    image: "",
+    icon: "gas",
     id: 2
   },
   {
     name: "Fuel",
     label: "Fuel",
-    image: "",
+    icon: "fuel",
     id: 3
   },
   {
     name: "Lifestyle",
     label: "Lifestyle",
-    image: "",
+    icon: "lifestyle",
     id: 4
   },
   {
     name: "Electricity",
     label: "Electricity",
-    image: "",
+    icon: "electricity",
     id: 5
   },
   {
     name: "Airtime / Data",
     label: "Airtime / Data",
-    image: "",
+    icon: "data",
     id: 6
+  },
+  {
+    name: "Tithes & Offering",
+    label: "Tithes & Offering ",
+    icon: "church",
+    id: 8
   },
   {
     name: "Water",
     label: "Water",
-    image: "",
+    icon: "water",
     id: 7
   }
 ]
@@ -70,14 +86,11 @@ function HomeScreen(props) {
           <View className="flex-row flex-wrap my-3">
             {
               Utils.map((item, id) => (
-                <TouchableOpacity key={id} className="h-[120px]  w-[120px] border border-gray-200 justify-center items-center">
-                  <View className="h-14 w-14 my-2 bg-gray-200 rounded-full">
-                  </View>
-                  <Text className="my-2">{item.label}</Text>
-                </TouchableOpacity>
+                <UtilityCard key={id} item={item} />
               ))
             }
           </View>
+
 
         </View>
       </ScrollView>
