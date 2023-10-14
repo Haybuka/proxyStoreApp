@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Pressable } from 'react-native';
 import Screen from '../components/Screen';
-import ArrowRight from '../assets/icon/ArrowRight';
+import ArrowLeft from '../assets/icon/account/LeftArrow';
 import Camera from '../assets/icon/account/Camera';
 import { useNavigation } from '@react-navigation/native';
 
@@ -41,7 +41,8 @@ function ProfileScreen(props) {
     <Screen>
       <View className="flex-row my-3 relative">
         <Pressable onPress={handleBackPress} className="absolute z-10 top-0 left-0">
-          <ArrowRight />
+          <ArrowLeft />
+
         </Pressable>
         <Text className="flex-1 text-center font-bold  text-xl">Profile</Text>
       </View>

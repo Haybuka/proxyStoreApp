@@ -15,7 +15,7 @@ export default {
     borderColor: "white",
     marginBottom: 5,
     overflow: "hidden",
-
+    // display: 'none'
   },
   headerShown: false
 

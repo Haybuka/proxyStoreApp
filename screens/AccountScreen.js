@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 
 
 import AccountHeader from '../components/Account/Header'
 import AccountTabs from '../components/Account/AccountTabs';
 import ScoreView from '../components/Account/ScoreView';
+import ArrowRight from '../assets/icon/ArrowRight';
 
 const accountInfo = [
   {
@@ -44,33 +45,41 @@ const accountSupport = [
 
 function AccountScreen(props) {
   return (
-    <View className="flex-1 bg-white relative">
-      <AccountHeader />
-      <ScoreView score={60} />
+    <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
 
-      {/* <Profile />
-      <Padlock />
-      <Help />
-      <About />
-      <Privacy />
-      <Logout />
-      <ArrowLeft />
-      <Padlock2 />
-      <Camera /> */}
-      <ScrollView showsVerticalScrollIndicator={false} className="flex-1 px-4 mb-6">
+      <View className="flex-1 bg-white relative">
+        <AccountHeader />
+        <ScoreView score={60} />
 
-        <AccountTabs
-          title={'Account info'}
-          options={accountInfo}
-        />
-        <AccountTabs
-          title={'Support'}
-          options={accountSupport}
-        />
+        {/* <Profile />
+        <Padlock />
+        <Help />
+        <About />
+        <Privacy />
+        <Logout />
+        <ArrowLeft />
+        <Padlock2 />
+        <Camera /> */}
+
+        <View className="px-3">
+          <AccountTabs
+            title={'Account info'}
+            options={accountInfo}
+          />
+          <AccountTabs
+            title={'Support'}
+            options={accountSupport}
+          />
+
+          <View className="flex-row">
+            <Text className="text-[16px] flex-1">Log out</Text>
+            <ArrowRight stroke='#FF2222' />
+          </View>
+        </View>
 
 
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 }
 

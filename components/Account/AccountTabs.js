@@ -13,10 +13,10 @@ function AccountTabs({ title, options }) {
   return (
     <View>
       <Text className="text-[#728BA5] text-[14px] mb-2">{title}</Text>
-      <View className="border border-gray-100 rounded-md px-3 mb-8 py-4">
+      <View className="border border-gray-100 rounded-md px-4 mb-8 py-4">
         {
           options.map((option) => (
-            <Pressable onPress={() => handlePress(option)} key={option.id} className="py-2 my-1 flex-row items-center">
+            <Pressable onPress={() => handlePress(option)} key={option.id} className="py-2 my-3 flex-row items-center">
               <View className="flex-row flex-1 items-center">
                 {accountIcons(option.icon)}
                 <Text className="text-lg ml-2 capitalize">{option.name}</Text>

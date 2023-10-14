@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import Screen from '../components/Screen';
 import { useNavigation } from '@react-navigation/native';
-import ArrowRight from '../assets/icon/ArrowRight';
+import ArrowLeft from '../assets/icon/account/LeftArrow';
+
 import { useForm } from "react-hook-form"
 
 
@@ -52,7 +53,8 @@ function PasswordChangeScreen(props) {
     <Screen>
       <View className="flex-row my-3 relative">
         <Pressable onPress={handleBackPress} className="absolute z-10 top-0 left-0">
-          <ArrowRight />
+          <ArrowLeft />
+
         </Pressable>
         <Text className="flex-1 text-center font-bold  text-xl">Change password</Text>
       </View>
@@ -70,7 +72,7 @@ function PasswordChangeScreen(props) {
             control={control}
           />
           <ProxyController
-            title="Password"
+            title="New password"
             placeholder={'password'}
             autoCapitalize="none"
             autoCorrect={false}

@@ -16,8 +16,8 @@ function AccountNavigator(props) {
     <Stack.Navigator screenOptions={{
       headerShown: false,
       // navigationBarHidden: true
-    }} initialRouteName='Account'>
-      <Stack.Screen name="Account" component={AccountScreen} />
+    }} initialRouteName='Overview'>
+      <Stack.Screen name="Overview" component={AccountScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Password" component={PasswordChangeScreen} />
     </Stack.Navigator>

@@ -11,11 +11,10 @@ import { useState } from 'react';
 import AccountNavigator from './AccountNavigator';
 
 const Tab = createBottomTabNavigator();
-
+const screens = ["Home", "Account", "Transactions"]
 function AppNavigator() {
   const [currentScreen, setCurrentScreen] = useState("Home")
-  const focusedRoute = useNavigationState(route => route?.routes)
-  console.log({ focusedRoute })
+  const [focusedScreen, setFocusedScreen] = useState(undefined)
   const navigation = useNavigation()
   const handleNavigation = (name) => {
     navigation.navigate(name)
@@ -23,17 +22,23 @@ function AppNavigator() {
   }
   return (
     <Tab.Navigator initialRouteName='Account'
+      screenListeners={({ route }) => {
 
+        setFocusedScreen(route?.state?.index)
+      }}
       screenOptions={
         {
           ...navScreenOptions,
           tabBarItemStyle: {
             justifyContent: "center",
-            backgroundColor: "red",
-            alignSelf: "center"
+            alignSelf: "center",
+            display: "none",
+            backgroundColor: 'red'
           },
-          // navigationBarHidden: true
-
+          tabBarStyle: {
+            ...navScreenOptions.tabBarStyle,
+            display: focusedScreen > 0 ? 'none' : 'flex',
+          }
         }
       }
 
@@ -58,8 +63,7 @@ function AppNavigator() {
             return (
               <BottomTabButton focused={focused} icon={'home'} onPress={() => handleNavigation(route.name)} />
             )
-          },
-          tabBarActiveBackgroundColor: "red"
+          }
         })}
 
 
@@ -84,7 +88,7 @@ function AppNavigator() {
         options={({ navigation, route }) => ({
           tabBarButton: (props) => {
             const focused = (route.name === currentScreen)
-            console.log(route.name)
+
 
             return (
               <BottomTabButton focused={focused} icon={'profile'} onPress={() => handleNavigation(route.name)} />
