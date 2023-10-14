@@ -62,32 +62,34 @@ const Utils = [
 function HomeScreen(props) {
   return (
     <Screen>
-      <View className="flex-row items-center my-6">
-        <View className="flex-row items-center flex-1">
-          <ImageBackground source={require("../assets/tianah.jpeg")} className="h-10 w-10 overflow-hidden rounded-full bg-black">
-
-          </ImageBackground>
-          <View>
-            <Text className="ml-2 font-semibold">Hi Tianah 👋🏼</Text>
-          </View>
-        </View>
-        <View>
-          <MaterialCommunityIcons name='bell' size={20} />
-        </View>
-      </View>
       <ScrollView>
-        <View>
-          <Text className="text-lg">Utilities</Text>
-          <View className="flex-row flex-wrap my-3">
-            {
-              Utils.map((item, id) => (
-                <UtilityCard key={id} item={item} />
-              ))
-            }
+        <View className="flex-row items-center my-6">
+          <View className="flex-row items-center flex-1">
+            <ImageBackground source={require("../assets/tianah.jpeg")} className="h-10 w-10 overflow-hidden rounded-full bg-black">
+
+            </ImageBackground>
+            <View>
+              <Text className="ml-2 font-semibold">Hi Tianah 👋🏼</Text>
+            </View>
           </View>
-
-
+          <View>
+            <MaterialCommunityIcons name='bell' size={20} />
+          </View>
         </View>
+        <ScrollView>
+          <View>
+            <Text className="text-lg">Utilities</Text>
+            <View className="flex-row flex-wrap my-3">
+              {
+                Utils.map((item, id) => (
+                  <UtilityCard key={id} item={item} />
+                ))
+              }
+            </View>
+
+
+          </View>
+        </ScrollView>
       </ScrollView>
     </Screen>
   );

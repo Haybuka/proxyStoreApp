@@ -9,6 +9,7 @@ import TransactionsScreen from '../screens/TransactionsScreen';
 import navScreenOptions from '../utils/navScreenOptions';
 import { useState } from 'react';
 import AccountNavigator from './AccountNavigator';
+import HomeNavigator from './HomeNavigator';
 
 const Tab = createBottomTabNavigator();
 const screens = ["Home", "Account", "Transactions"]
@@ -21,7 +22,7 @@ function AppNavigator() {
     setCurrentScreen(name)
   }
   return (
-    <Tab.Navigator initialRouteName='Account'
+    <Tab.Navigator initialRouteName='Home'
       screenListeners={({ route }) => {
 
         setFocusedScreen(route?.state?.index)
@@ -55,7 +56,7 @@ function AppNavigator() {
       }} />
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNavigator}
         options={({ navigation, route }) => ({
 
           tabBarButton: (props) => {

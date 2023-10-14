@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Pressable } from 'react-native';
 
 
 import AccountHeader from '../components/Account/Header'
@@ -43,7 +43,10 @@ const accountSupport = [
 ]
 
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
+  const handleLogout = () => {
+    navigation.navigate("Auth")
+  }
   return (
     <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
 
@@ -71,8 +74,10 @@ function AccountScreen(props) {
             options={accountSupport}
           />
 
-          <View className="flex-row">
-            <Text className="text-[16px] flex-1">Log out</Text>
+          <View className="flex-row justify-between items-center">
+            <Pressable onPress={handleLogout}>
+              <Text className="text-[16px] flex-1">Log out</Text>
+            </Pressable>
             <ArrowRight stroke='#FF2222' />
           </View>
         </View>
