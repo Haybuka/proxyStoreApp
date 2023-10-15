@@ -40,13 +40,13 @@ const Utils = [
     id: 5
   },
   {
-    name: "Airtime / Data",
+    name: "Airtime",
     label: "Airtime / Data",
     icon: "data",
     id: 6
   },
   {
-    name: "Tithes & Offering",
+    name: "Tithes",
     label: "Tithes & Offering ",
     icon: "church",
     id: 8

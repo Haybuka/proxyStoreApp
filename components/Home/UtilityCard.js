@@ -10,8 +10,9 @@ export default function UtilityCard({ item }) {
   const navigation = useNavigation()
   const handleUtility = () => {
     navigation.navigate('Utility', {
-      name: item.label
+      name: item?.name
     })
+    navigation.setOptions({ title: item?.label })
   }
 
   return (

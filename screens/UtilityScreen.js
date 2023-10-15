@@ -1,24 +1,39 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Screen from '../components/Screen'
 import { Pressable, ScrollView, Text, View } from 'react-native'
 import ArrowLeft from '../assets/icon/account/LeftArrow';
 
-const UtilityScreen = ({ route, route: { name, params }, navigation }) => {
 
 
+import UtilityScreenType from '../components/Utility';
+
+const UtilityScreen = ({ route, route: { params }, navigation }) => {
+
+  const [pageTitle, setPageTitle] = useState("")
+  console.log({ route })
   const handleBackPress = () => {
     navigation.goBack();
   }
+
+  useLayoutEffect(() => {
+    setPageTitle(params?.name)
+  }, [params?.name])
+
+  const handlePageTitle = (title) => {
+    setPageTitle(title)
+  }
+
   return (
     <Screen>
-      <ScrollView>
-        <View className="flex-row">
-          <Pressable onPress={handleBackPress} className="">
-            <ArrowLeft />
+      <View className="flex-row items-center relative py-3">
+        <Pressable onPress={handleBackPress} className="absolute z-10 ">
+          <ArrowLeft />
 
-          </Pressable>
-          <Text className="flex-1 text-center">{params?.name} {name} Screen</Text>
-        </View>
+        </Pressable>
+        <Text className="flex-1 text-center text-[18px] font-semibold ">{pageTitle}</Text>
+      </View>
+      <ScrollView>
+        <UtilityScreenType handleTitle={handlePageTitle} title={pageTitle} />
       </ScrollView>
     </Screen>
   )
