@@ -28,7 +28,7 @@ const Electricity = ({ handleTitle }) => {
 
   const handleTitleChange = (item) => {
     // navigation.push('Utility')
-    handleTitle("Payment Info")
+    navigation.navigate("Payment")
   }
 
   return (

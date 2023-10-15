@@ -10,7 +10,7 @@ import UtilityScreenType from '../components/Utility';
 const UtilityScreen = ({ route, route: { params }, navigation }) => {
 
   const [pageTitle, setPageTitle] = useState("")
-  console.log({ route })
+
   const handleBackPress = () => {
     navigation.goBack();
   }
@@ -19,9 +19,7 @@ const UtilityScreen = ({ route, route: { params }, navigation }) => {
     setPageTitle(params?.name)
   }, [params?.name])
 
-  const handlePageTitle = (title) => {
-    setPageTitle(title)
-  }
+
 
   return (
     <Screen>
@@ -33,7 +31,7 @@ const UtilityScreen = ({ route, route: { params }, navigation }) => {
         <Text className="flex-1 text-center text-[18px] font-semibold ">{pageTitle}</Text>
       </View>
       <ScrollView>
-        <UtilityScreenType handleTitle={handlePageTitle} title={pageTitle} />
+        <UtilityScreenType title={pageTitle} />
       </ScrollView>
     </Screen>
   )

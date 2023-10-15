@@ -8,26 +8,26 @@ import Airtime from './Airtime'
 import Tithes from './Tithes'
 import Water from './water'
 
-const UtilityScreenType = ({ title, handleTitle }) => {
+const UtilityScreenType = ({ title }) => {
 
   const utilityType = (title) => {
     switch (title?.toLowerCase()) {
       case "fuel":
-        return <Fuel handleTitle={handleTitle} />
+        return <Fuel />
       case "gas":
-        return <Gas handleTitle={handleTitle} />
+        return <Gas />
       case "transportation":
-        return <Transportation handleTitle={handleTitle} />
+        return <Transportation />
       case "lifestyle":
-        return <Lifestyle handleTitle={handleTitle} />
+        return <Lifestyle />
       case "electricity":
-        return <Electricity handleTitle={handleTitle} />
+        return <Electricity />
       case "airtime":
-        return <Airtime handleTitle={handleTitle} />
+        return <Airtime />
       case "tithes":
-        return <Tithes handleTitle={handleTitle} />
+        return <Tithes />
       case "water":
-        return <Water handleTitle={handleTitle} />
+        return <Water />
 
       default:
         break;

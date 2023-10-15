@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text, View, ScrollView } from 'react-native';
+import { Pressable, Text, View, ScrollView, KeyboardAvoidingView } from 'react-native';
 import AuthHeader from '../components/AuthHeader';
 import AuthFooter from '../components/AuthFooter';
 import { useForm } from "react-hook-form"
@@ -49,38 +49,40 @@ function LoginScreen({ navigation }) {
   return (
     <ScrollView>
       <AuthHeader title={'Login'} description={`Login to your account. We'd love to have you on board!`} />
-      <View className="px-2">
-        <View className="py-4">
-          <ProxyController
-            title="Email Address"
-            placeholder={'Johndoe@email.com'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            name={'email'}
-            control={control}
-          />
-          <ProxyController
-            title="Password"
-            placeholder={'password'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon={'eye'}
-            name={'password'}
-            secureTextEntry
-            control={control}
-          />
-          <Pressable className="mb-6" onPress={handleForgetPassword}>
-            <Text className="text-[#0D5FFF] font-semibold">Forgot Password?</Text>
-          </Pressable>
+      <KeyboardAvoidingView behavior='padding'>
+        <View className="px-2">
+          <View className="py-4">
+            <ProxyController
+              title="Email Address"
+              placeholder={'Johndoe@email.com'}
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              name={'email'}
+              control={control}
+            />
+            <ProxyController
+              title="Password"
+              placeholder={'password'}
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon={'eye'}
+              name={'password'}
+              secureTextEntry
+              control={control}
+            />
+            <Pressable className="mb-6" onPress={handleForgetPassword}>
+              <Text className="text-[#0D5FFF] font-semibold">Forgot Password?</Text>
+            </Pressable>
 
-          <ProxyButton title={"Login"} handlePress={handleSubmit(handleLogin)} />
-          <AuthFooter items={footerItems} />
+            <ProxyButton title={"Login"} handlePress={handleSubmit(handleLogin)} />
+            <AuthFooter items={footerItems} />
+
+          </View>
 
         </View>
-
-      </View>
+      </KeyboardAvoidingView>
     </ScrollView>
   )
 }
