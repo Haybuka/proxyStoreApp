@@ -16,7 +16,7 @@ export default function UtilityCard({ item }) {
   }
 
   return (
-    <TouchableOpacity onPress={handleUtility} className="h-[120px]  w-[120px] border border-gray-200 justify-center items-center">
+    <TouchableOpacity onPress={handleUtility} className="h-[120px]  w-[123px] border border-gray-100 justify-center items-center">
       <View className="h-14 w-14 my-2 border border-gray-200 rounded-full justify-center items-center">
         {
           utitlityIcons(item.icon)

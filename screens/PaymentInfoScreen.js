@@ -31,7 +31,7 @@ function PaymentInfoScreen({ navigation, route: { params: { utility } } }) {
     navigation.goBack();
   }
 
-  console.log({ utility })
+
   return (
     <Screen>
       <View className="flex-row items-center relative py-3">
