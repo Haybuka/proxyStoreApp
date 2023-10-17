@@ -54,15 +54,6 @@ function AccountScreen({ navigation }) {
         <AccountHeader />
         <ScoreView score={60} />
 
-        {/* <Profile />
-        <Padlock />
-        <Help />
-        <About />
-        <Privacy />
-        <Logout />
-        <ArrowLeft />
-        <Padlock2 />
-        <Camera /> */}
 
         <View className="px-3">
           <AccountTabs
