@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Fuel from './Fuel'
 import Gas from './Gas'
 import Transportation from './Transportation'
@@ -7,6 +8,7 @@ import Electricity from './Electricity'
 import Airtime from './Airtime'
 import Tithes from './Tithes'
 import Water from './water'
+import Codevolution from './codevolution'
 
 const UtilityScreenType = ({ title }) => {
 
@@ -28,7 +30,8 @@ const UtilityScreenType = ({ title }) => {
         return <Tithes />
       case "water":
         return <Water />
-
+      case "codevolution":
+        return <Codevolution />
       default:
         break;
     }

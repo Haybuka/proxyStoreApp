@@ -5,7 +5,7 @@ import currencyFormat from '../../utils/currencyFormat';
 
 function TransactionList({ item }) {
   return (
-    <View className="flex-row py-5">
+    <View className="flex-row py-6">
       <View className="flex-1 flex-row items-start">
         <View className="w-10 h-10 mr-2 items-center">
           {utitlityIcons(item.icon)}

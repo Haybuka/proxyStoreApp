@@ -39,6 +39,18 @@ const data = [
     name: "oika",
     image: require('../../../assets/icon/utilities/Tithes/Tithes.png'),
     id: 6
+  },
+  {
+    label: "Oika christain centre",
+    name: "oika",
+    image: require('../../../assets/icon/utilities/Tithes/Tithes.png'),
+    id: 7
+  },
+  {
+    label: "Oika christain centre",
+    name: "oika",
+    image: require('../../../assets/icon/utilities/Tithes/Tithes.png'),
+    id: 8
   }
 ]
 
@@ -60,6 +72,7 @@ const Tithes = () => {
         data={data}
         keyExtractor={(data => data.id.toString())}
         showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={<View className="my-3"></View>}
         renderItem={({ item }) => (
           <Pressable onPress={() => handleTitleChange(item)} className="border border-gray-200 flex-row items-center rounded-md p-3 py-4">

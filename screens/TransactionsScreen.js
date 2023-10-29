@@ -67,7 +67,7 @@ const TransactionsScreen = () => {
 
   return (
     <View className="flex-1 bg-white">
-      <View className="h-[148px] bg-[#F7F9FF] justify-center items-center border-b-2 border-gray-100">
+      <View className="h-[100px] bg-[#F7F9FF] justify-end pb-4 items-center border-b-2 border-gray-100">
         <Text className="text-black text-xl font-semibold">Transactions</Text>
       </View>
       <View className="px-4 mb-[150px]">

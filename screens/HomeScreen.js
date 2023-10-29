@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, ImageBackground, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, ScrollView } from 'react-native';
 import Screen from '../components/Screen';
 import { MaterialCommunityIcons } from '@expo/vector-icons/'
 
@@ -56,7 +56,13 @@ const Utils = [
     label: "Water",
     icon: "water",
     id: 7
-  }
+  },
+  {
+    name: "Codevolution",
+    label: "Codevolution",
+    icon: "Codevolution",
+    id: 8
+  },
 ]
 
 function HomeScreen(props) {

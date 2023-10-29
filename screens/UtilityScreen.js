@@ -30,9 +30,9 @@ const UtilityScreen = ({ route, route: { params }, navigation }) => {
         </Pressable>
         <Text className="flex-1 text-center text-[18px] font-semibold ">{pageTitle}</Text>
       </View>
-      <ScrollView>
-        <UtilityScreenType title={pageTitle} />
-      </ScrollView>
+      {/* <ScrollView className=""> */}
+      <UtilityScreenType title={pageTitle} />
+      {/* </ScrollView> */}
     </Screen>
   )
 }
