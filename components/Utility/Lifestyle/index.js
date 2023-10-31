@@ -50,7 +50,7 @@ const Lifestyle = () => {
 
 
   const handleTitleChange = (utility) => {
-    navigation.navigate("Payment", {
+    navigation.navigate("Lifestyle", {
       utility
     })
   }

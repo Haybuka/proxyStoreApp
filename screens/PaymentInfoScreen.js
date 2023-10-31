@@ -34,7 +34,7 @@ function PaymentInfoScreen({ navigation, route: { params: { utility } } }) {
 
   return (
     <Screen>
-      <View className="flex-row items-center relative py-3">
+      <View className="flex-row items-center relative py-3 pb-4 mb-4 border-b border-gray-100">
         <Pressable onPress={handleBackPress} className="absolute z-10 ">
 
           <ArrowLeft />

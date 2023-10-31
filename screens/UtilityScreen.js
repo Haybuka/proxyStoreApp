@@ -6,6 +6,7 @@ import ArrowLeft from '../assets/icon/account/LeftArrow';
 
 
 import UtilityScreenType from '../components/Utility';
+import Header from '../components/Utility/Lifestyle/header';
 
 const UtilityScreen = ({ route, route: { params }, navigation }) => {
 
@@ -23,13 +24,8 @@ const UtilityScreen = ({ route, route: { params }, navigation }) => {
 
   return (
     <Screen>
-      <View className="flex-row items-center relative py-3">
-        <Pressable onPress={handleBackPress} className="absolute z-10 ">
-          <ArrowLeft />
 
-        </Pressable>
-        <Text className="flex-1 text-center text-[18px] font-semibold ">{pageTitle}</Text>
-      </View>
+      <Header title={pageTitle} />
       {/* <ScrollView className=""> */}
       <UtilityScreenType title={pageTitle} />
       {/* </ScrollView> */}

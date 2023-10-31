@@ -65,7 +65,7 @@ const Utils = [
   },
 ]
 
-function HomeScreen(props) {
+function HomeScreen() {
   return (
     <Screen>
       <ScrollView>
