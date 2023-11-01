@@ -9,6 +9,8 @@ import PaymentInfoScreen from '../screens/PaymentInfoScreen';
 import LifestyleScreen from '../screens/LifestyleScreen';
 import ServiceSelectScreen from '../screens/ServiceSelectScreen';
 import CalenderDisplayScreen from '../screens/CalenderDisplayScreen';
+import ServiceLocationScreen from '../screens/ServiceLocationScreen';
+import ReceiptScreen from '../screens/ReceiptScreen';
 
 
 
@@ -44,6 +46,14 @@ function HomeNavigator(props) {
       <Stack.Screen
         name="Calender"
         component={CalenderDisplayScreen}
+      />
+      <Stack.Screen
+        name="Location"
+        component={ServiceLocationScreen}
+      />
+      <Stack.Screen
+        name="Receipt"
+        component={ReceiptScreen}
       />
     </Stack.Navigator>
   );

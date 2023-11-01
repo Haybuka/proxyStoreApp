@@ -19,6 +19,14 @@ const CalenderDisplayScreen = ({ route, route: { params }, navigation }) => {
     setSelectedDate(date)
   }
   const timing = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  const handleServiceLocation = () => {
+    navigation.navigate("Location", {
+      ...params,
+      ...selectedDate
+    })
+  }
+
   return (
     <Screen>
       <Header title={'Select date/time'} />
@@ -45,7 +53,7 @@ const CalenderDisplayScreen = ({ route, route: { params }, navigation }) => {
         {
           selectedDate ?
             (
-              <Pressable className="bg-blue-700 py-4 my-6 rounded-md">
+              <Pressable onPress={handleServiceLocation} className="bg-blue-700 py-4 my-6 rounded-md">
                 <Text className="text-white text-center">Next</Text>
               </Pressable>) :
             (
