@@ -5,7 +5,7 @@ import ArrowLeft from '../../../assets/icon/account/LeftArrow';
 import { useNavigation } from '@react-navigation/native';
 import Fi_share from '../../../assets/icon/Fi_share';
 
-function Header({ title, border, color = "black", download, hidden = false }) {
+function Header({ title, border, color = "black", download, hidden = true }) {
 
   const navigation = useNavigation()
 

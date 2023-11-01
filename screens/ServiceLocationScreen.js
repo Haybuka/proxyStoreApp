@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Screen from '../components/Screen'
-import { Pressable, Text, TextInput, View } from 'react-native'
+import { FlatList, Modal, Pressable, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import cls from 'classnames'
 
 import Header from '../components/Utility/Lifestyle/header';
@@ -11,8 +11,27 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
 
 
 
-  console.log("in location", params)
+  const [modal, setModal] = useState(false)
+  const [st, setSt] = useState('')
 
+  const countries = [
+    {
+      state: "Lagos",
+      code: "LAG",
+    },
+    {
+      state: "Ekiti",
+      code: "EKT",
+    },
+    {
+      state: "Ogun",
+      code: "OGN",
+    },
+    {
+      state: "Oyo state",
+      code: "OYO",
+    }
+  ]
   const handleReceipt = () => {
     navigation.navigate("Receipt", {
       details: {
@@ -20,6 +39,15 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
         showDetail: true
       }
     })
+  }
+
+  const handleModal = () => {
+    setModal(prev => !prev)
+  }
+
+  const handleState = (state) => {
+    handleModal()
+    setSt(state)
   }
 
   return (
@@ -40,16 +68,25 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
               <TextInput
                 placeholder='Select state'
                 className="text-gray-400 py-2 "
+                value={st.state}
               />
-              <Text className="absolute right-2 bg-white">H</Text>
+              <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
+                <Text>H</Text>
+              </Pressable>
             </View>
           </View>
-          <View className="border flex-1 border-gray-200 px-3 py-2 rounded-lg">
+          <View className="border flex-1 mr-2 border-gray-200 px-3 py-2 rounded-lg">
             <Text className="">City</Text>
-            <TextInput
-              placeholder='Enter your city'
-              className="text-gray-400 py-2 "
-            />
+            <View className="relative justify-center">
+              <TextInput
+                placeholder='Select state'
+                className="text-gray-400 py-2 "
+                value={st.state}
+              />
+              <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
+                <Text>H</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
         <View className="bg-white">
@@ -58,6 +95,22 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
           </Pressable>
         </View>
       </View>
+      <Modal visible={modal}>
+        <Screen >
+          <FlatList
+            data={countries}
+            ItemSeparatorComponent={<View className="my-1 border border-gray-200"></View>}
+            renderItem={({ item }) => (
+              <TouchableOpacity className=" py-3 px-2" onPress={() => handleState(item)}>
+                <Text>{item.state}</Text>
+              </TouchableOpacity>
+            )}
+          />
+
+        </Screen>
+
+
+      </Modal>
     </Screen>
   )
 }
