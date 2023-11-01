@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator()
 function HomeNavigator(props) {
   return (
     <Stack.Navigator screenOptions={{
-      headerShown: false,
+      headerShown: true,
       // navigationBarHidden: true
     }} initialRouteName='Index'>
       <Stack.Screen name="Index" component={HomeScreen} />
@@ -54,6 +54,11 @@ function HomeNavigator(props) {
       <Stack.Screen
         name="Receipt"
         component={ReceiptScreen}
+        options={{
+          headerBackTitleVisible: true,
+          headerShown: false,
+          // headerTintColor: 'white'
+        }}
       />
     </Stack.Navigator>
   );

@@ -16,7 +16,8 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
   const handleReceipt = () => {
     navigation.navigate("Receipt", {
       details: {
-        ...params
+        ...params,
+        showDetail: true
       }
     })
   }
