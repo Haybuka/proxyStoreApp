@@ -70,7 +70,7 @@ const TransactionsScreen = () => {
       <View className="h-[100px] bg-[#F7F9FF] justify-end pb-4 items-center border-b-2 border-gray-100">
         <Text className="text-black text-xl font-semibold">Transactions</Text>
       </View>
-      <View className="px-4 mb-[150px]">
+      <View className="px-4 mb-[110px]">
         <FlatList
           data={transactions}
           ItemSeparatorComponent={<View className="border border-gray-50"></View>}

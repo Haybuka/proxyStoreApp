@@ -1,90 +1,140 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Screen from '../components/Screen'
 import { Image, Pressable, ScrollView, Text, View } from 'react-native'
-import ArrowLeft from '../assets/icon/account/LeftArrow';
-import LifestyleFilters from '../components/Utility/Lifestyle/filters';
+import cls from 'classnames'
+
 import Header from '../components/Utility/Lifestyle/header';
+import LocationIcon from '../assets/icon/account/location';
+import ServiceList from '../components/Utility/Lifestyle/serviceList';
 
 
 
 const ServiceSelectScreen = ({ route, route: { params }, navigation }) => {
-  const [pageTitle, setPageTitle] = useState("")
 
-
-  console.log(params)
-  // useLayoutEffect(() => {
-  //   setPageTitle(params?.utility)
-
-  // }, [params?.utility.label])
-
-  const barbing = [
+  const data = [
     {
-      name: 'Ultimate cutz',
+      name: 'Item One',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 1,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Two',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 2,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Three',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 3,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Four',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 4,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Five',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 5,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Six',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 6,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Ultimate cutz',
+      name: 'Item Seven',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 7,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     },
     {
-      name: 'Last One',
+      name: 'Last Eight',
       address: "153, Ikorodu rd, Palm ...",
       image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
       id: 8,
-      description: "Mens clipper cut"
+      description: "Description of item",
+      amount: '5,000'
     }
   ]
+
+  const [serviceType, setServiceType] = useState(0)
+  const [selectedId, setSelectedId] = useState(0)
+  const [service, setService] = useState({})
+
+  const handleSelectedId = (service) => {
+    setSelectedId(service.id)
+    setService(service)
+  }
+
+  const handleServiceSelected = () => {
+    navigation.navigate("Calender", {
+      ...service
+    })
+  }
 
   return (
     <Screen>
       <Header title={'Select a service'} />
-      <View className="justify-center items-center m-1 p-3">
-        <Image resizeMode='contain' source={params?.image} />
-        <Text>{params.name} {params.id}</Text>
-        <Text numberOfLines={1} className="text-[12px] text-[#808CA3]">{params.address}</Text>
-      </View>
+      <ScrollView showsHorizontalScrollIndicator={false}>
 
+        <View className="justify-center items-center m-1 p-3">
+          <Image resizeMode='contain' source={params?.image} />
+          <Text>{params.name} {params.id}</Text>
+          <View className="flex-row items-center my-1">
+            <LocationIcon dimension='18' />
+            <Text numberOfLines={1} className="text-[12px] text-[#808CA3]">{params.address}</Text>
+          </View>
+        </View>
+
+        <View className="flex-row py-1 border w-[250px] border-gray-200 px-1 bg-gray-100 rounded-md my-3 mb-4 justify-between items-center">
+          <Pressable onPress={() => setServiceType(0)}>
+            <Text className={cls(serviceType === 0 ? "py-2 px-4 rounded-md bg-blue-600 text-white" : "py-2 px-4 rounded-md bg-transparent text-black")}>Walk in</Text>
+          </Pressable>
+          <Pressable onPress={() => setServiceType(1)}>
+            <Text className={cls(serviceType === 1 ? "py-2 px-4 rounded-md bg-blue-600 text-white" : "py-2 px-4 rounded-md bg-transparent text-black")}>Home service</Text>
+          </Pressable>
+        </View>
+        {
+          data.map((item, id) => (
+            <ServiceList key={id} service={item} handleSelectedId={handleSelectedId} selectedId={selectedId} />
+          ))
+        }
+      </ScrollView>
+      <View className="bg-white">
+        {
+          selectedId ?
+            (
+              <Pressable onPress={handleServiceSelected} className="bg-blue-700 py-4 my-6 rounded-md">
+                <Text className="text-white text-center">Continue</Text>
+              </Pressable>) :
+            (
+              <Pressable className="bg-blue-200 py-4 my-6 rounded-md">
+                <Text className="text-white text-center">Continue</Text>
+              </Pressable>
+            )
+        }
+      </View>
     </Screen>
   )
 }

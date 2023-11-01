@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, ScrollView } from 'react-native';
 import Screen from '../components/Screen';
 import { useNavigation } from '@react-navigation/native';
 import ArrowLeft from '../assets/icon/account/LeftArrow';
@@ -58,44 +58,46 @@ function PasswordChangeScreen(props) {
         </Pressable>
         <Text className="flex-1 text-center font-bold  text-xl">Change password</Text>
       </View>
-      <View className="px-2">
-        <View className="py-6">
+      <ScrollView>
+        <View className="px-2 mb-4">
+          <View className="py-6">
 
-          <ProxyController
-            title="Current password"
-            placeholder={'password'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon={'eye'}
-            name={'current_password'}
-            secureTextEntry
-            control={control}
-          />
-          <ProxyController
-            title="New password"
-            placeholder={'password'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon={'eye'}
-            name={'password'}
-            secureTextEntry
-            control={control}
-          />
-          <ProxyController
-            title="Re-enter Password"
-            placeholder={'password'}
-            autoCapitalize="none"
-            autoCorrect={false}
-            icon={'eye'}
-            name={'password2'}
-            secureTextEntry
-            control={control}
-          />
+            <ProxyController
+              title="Current password"
+              placeholder={'password'}
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon={'eye'}
+              name={'current_password'}
+              secureTextEntry
+              control={control}
+            />
+            <ProxyController
+              title="New password"
+              placeholder={'password'}
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon={'eye'}
+              name={'password'}
+              secureTextEntry
+              control={control}
+            />
+            <ProxyController
+              title="Re-enter Password"
+              placeholder={'password'}
+              autoCapitalize="none"
+              autoCorrect={false}
+              icon={'eye'}
+              name={'password2'}
+              secureTextEntry
+              control={control}
+            />
+          </View>
+
+          <ProxyButton title={"Save"} handlePress={handleSubmit(handlePasswordChange)} />
+
         </View>
-
-        <ProxyButton title={"Save"} handlePress={handleSubmit(handlePasswordChange)} />
-
-      </View>
+      </ScrollView>
     </Screen>
   );
 }

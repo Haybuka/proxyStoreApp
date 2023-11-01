@@ -85,7 +85,7 @@ function HomeScreen() {
         <ScrollView>
           <View>
             <Text className="text-lg">Utilities</Text>
-            <View className="flex-row flex-wrap my-3">
+            <View className="flex-row flex-wrap my-3 ">
               {
                 Utils.map((item, id) => (
                   <UtilityCard key={id} item={item} />

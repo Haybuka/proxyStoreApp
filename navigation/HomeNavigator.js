@@ -8,6 +8,7 @@ import UtilityScreen from '../screens/UtilityScreen';
 import PaymentInfoScreen from '../screens/PaymentInfoScreen';
 import LifestyleScreen from '../screens/LifestyleScreen';
 import ServiceSelectScreen from '../screens/ServiceSelectScreen';
+import CalenderDisplayScreen from '../screens/CalenderDisplayScreen';
 
 
 
@@ -39,6 +40,10 @@ function HomeNavigator(props) {
       <Stack.Screen
         name="ServiceSelect"
         component={ServiceSelectScreen}
+      />
+      <Stack.Screen
+        name="Calender"
+        component={CalenderDisplayScreen}
       />
     </Stack.Navigator>
   );

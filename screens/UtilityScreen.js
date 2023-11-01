@@ -26,9 +26,11 @@ const UtilityScreen = ({ route, route: { params }, navigation }) => {
     <Screen>
 
       <Header title={pageTitle} />
-      {/* <ScrollView className=""> */}
-      <UtilityScreenType title={pageTitle} />
-      {/* </ScrollView> */}
+      <View className=" mb-10">
+
+        <UtilityScreenType title={pageTitle} />
+      </View>
+
     </Screen>
   )
 }

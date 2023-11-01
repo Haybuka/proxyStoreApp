@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { Text, Image, TouchableOpacity } from 'react-native';
 
 function LifestyleCard({ card }) {
   const navigation = useNavigation()
 
   const handleClick = (card) => {
-    console.log(card)
+
     navigation.navigate("ServiceSelect", {
       ...card
     })
