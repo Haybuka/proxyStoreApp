@@ -14,7 +14,7 @@ function Header({ title, border, color = "black", download }) {
     navigation.goBack();
   }
   return (
-    <View className={`flex-row items-center relative py-3 pb-4 mb-4 border-b border-gray-200 border-[${border}]`}>
+    <View className={`flex-row items-center relative py-3 pb-5 mb-4 border-b border-gray-200 border-[${border}]`}>
       <Pressable onPress={handleBackPress} className="absolute z-10 ">
         <ArrowLeft fill={color} />
       </Pressable>

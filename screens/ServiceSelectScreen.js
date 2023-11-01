@@ -89,7 +89,8 @@ const ServiceSelectScreen = ({ route, route: { params }, navigation }) => {
 
   const handleServiceSelected = () => {
     navigation.navigate("Calender", {
-      ...service
+      ...service,
+      image: params.image
     })
   }
 
