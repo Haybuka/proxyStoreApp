@@ -9,12 +9,12 @@ import UtilityCard from '../components/Home/UtilityCard';
 
 
 const Utils = [
-  {
-    name: "Transportation",
-    label: "Transportation",
-    icon: "transport",
-    id: 1
-  },
+  // {
+  //   name: "Transportation",
+  //   label: "Transportation",
+  //   icon: "transport",
+  //   id: 1
+  // },
   {
     name: "Gas",
     label: "Cooking Gas",
@@ -40,23 +40,23 @@ const Utils = [
     id: 5
   },
   {
-    name: "Airtime",
+    name: "airtime & data",
     label: "Airtime / Data",
     icon: "data",
     id: 6
   },
   {
-    name: "Tithes",
+    name: "Tithes & offering",
     label: "Tithes & Offering ",
     icon: "church",
     id: 8
   },
-  {
-    name: "Water",
-    label: "Water",
-    icon: "water",
-    id: 7
-  },
+  // {
+  //   name: "Water",
+  //   label: "Water",
+  //   icon: "water",
+  //   id: 7
+  // },
   {
     name: "Codevolution",
     label: "Codevolution",

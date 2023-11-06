@@ -24,9 +24,9 @@ const UtilityScreenType = ({ title }) => {
         return <Lifestyle />
       case "electricity":
         return <Electricity />
-      case "airtime":
+      case "airtime & data":
         return <Airtime />
-      case "tithes":
+      case "tithes & offering":
         return <Tithes />
       case "water":
         return <Water />

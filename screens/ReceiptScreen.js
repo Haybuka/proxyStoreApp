@@ -10,14 +10,14 @@ import Receipt from '../components/receipt';
 
 
 const ReceiptScreen = ({ route, route: { params: { details } }, navigation }) => {
-
-  const [showDetail] = useState(details?.showDetail)
-
+  const { message = "A token will be sent to your phone number which you will load on the meter box to get the purchased power units.", showDetail } = details
+  const [detail] = useState(showDetail)
+  console.log(details)
   return (
     <Screen bg={'#0D5FFF'}>
-      <Header title={'Receipt'} border='#2972FF' color='white' hidden={showDetail} />
+      <Header title={'Receipt'} border='#2972FF' color='white' hidden={detail} />
       {
-        showDetail ? (
+        detail ? (
           <>
 
 
@@ -36,9 +36,7 @@ const ReceiptScreen = ({ route, route: { params: { details } }, navigation }) =>
               <CheckBox />
               <View className="my-3">
                 <Text className="text-lg text-center text-white font-semibold mb-4">Payment Successful!</Text>
-                <Text className="text-center text-[#B9D1FF] mb-4">A token will be sent to your phone number which
-                  you will load on the meter box to get the purchased
-                  power units.</Text>
+                <Text className="text-center text-[#B9D1FF] mb-4">{message}</Text>
 
               </View>
             </View>
