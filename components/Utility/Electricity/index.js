@@ -29,7 +29,8 @@ const Electricity = () => {
 
   const handleTitleChange = (utility) => {
     navigation.navigate("Payment", {
-      utility
+      utility,
+      type: 'electricity'
     })
   }
 
