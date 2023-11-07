@@ -36,16 +36,7 @@ const networkOptions = [
 
 const Airtime = () => {
   const [type, setType] = useState(0)
-  const navigation = useNavigation()
 
-  const handlePurchase = () => {
-    navigation.navigate("Receipt", {
-      details: {
-        showDetail: false,
-        message: "Your data bundle purchase was successful"
-      }
-    })
-  }
 
   const handleType = (id) => {
     setType(id)
@@ -73,9 +64,7 @@ const Airtime = () => {
             <DataSelect />
           )
         }
-        <Pressable onPress={handlePurchase} className="bg-blue-700 py-4 my-6 rounded-md">
-          <Text className="text-white text-center">Continue to Payment</Text>
-        </Pressable>
+
       </View>
     </ScrollView>
   )

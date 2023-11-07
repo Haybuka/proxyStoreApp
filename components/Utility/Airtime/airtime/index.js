@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
 import InputType from '../inputType';
+import { useNavigation } from '@react-navigation/native';
+import AirtimeButton from '../button';
 
 
 const airtimeOptions = ['100', '200', '500', '1000']
 function AirtimeSelect(props) {
 
-  const [amount, setAmount] = useState('0')
+  const navigation = useNavigation()
+
+  const handlePurchase = () => {
+    navigation.navigate("Receipt", {
+      details: {
+        showDetail: false,
+        message: "Your data bundle purchase was successful"
+      }
+    })
+  }
+
+  const [amount, setAmount] = useState()
   const [phonenumber, setPhoneNumber] = useState('')
 
   const handleAmountSet = (value) => {
@@ -17,8 +30,10 @@ function AirtimeSelect(props) {
     setPhoneNumber(value)
   }
 
+
+
   return (
-    <View>
+    <AirtimeButton handlePurchase={handlePurchase}>
       <InputType title={'Amount'} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
       <View className="flex-row justify-between items-center my-6">
         {
@@ -30,7 +45,7 @@ function AirtimeSelect(props) {
         }
       </View>
       <InputType title={'Phone Number'} placeholder={'Enter phone number'} inputMode='numeric' value={phonenumber} handleSet={handleNumberSet} />
-    </View>
+    </AirtimeButton>
   );
 }
 
