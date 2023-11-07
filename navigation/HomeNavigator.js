@@ -60,6 +60,16 @@ function HomeNavigator(props) {
           // headerTintColor: 'white'
         }}
       />
+      {/* <Stack.Screen
+        name="Receipt"
+        component={ReceiptScreen}
+
+        options={{
+          headerBackTitleVisible: true,
+          headerShown: false,
+          presentation: 'modal'
+        }}
+      /> */}
     </Stack.Navigator>
   );
 }

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Pressable, Text, Image, ScrollView } from 'react-native';
 import Screen from '../components/Screen';
 import ProxyButton from '../components/ProxyButton';
 import ArrowLeft from '../assets/icon/account/LeftArrow';
+import InputType from '../components/Utility/Tithes/inputType';
 
 // 1 - select drop down
 // 2 - Number
@@ -26,6 +27,11 @@ const electric = {
 
 
 function PaymentInfoScreen({ navigation, route: { params: { utility } } }) {
+  const [amount, setAmount] = useState()
+
+  const handleAmountSet = (value) => {
+    setAmount(value)
+  }
 
   const handleBackPress = () => {
     navigation.goBack();
@@ -49,9 +55,8 @@ function PaymentInfoScreen({ navigation, route: { params: { utility } } }) {
           </View>
           <Text className="text-center font-semibold my-3 text-lg capitalize">{utility?.label}</Text>
         </View>
-        <View>
+        <InputType title={`What's your monthly income ?`} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
 
-        </View>
         <ProxyButton title={"Continue to Payment"} />
 
       </ScrollView>
