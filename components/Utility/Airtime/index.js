@@ -1,9 +1,10 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
-import { FlatList, Image, Pressable, ScrollView, Text, TextInput, View } from 'react-native'
+import { FlatList, Image, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import cls from 'classnames'
 import TypeSelect from './typeSelect'
 import AirtimeSelect from './airtime'
+import DataSelect from './data'
 
 
 const networkOptions = [
@@ -60,12 +61,18 @@ const Airtime = () => {
         </View>
         <View className="flex-row justify-between items-center my-6">
           {networkOptions.map((options) => (
-            <Pressable key={options.id} className=" flex-row items-center rounded-md">
+            <TouchableOpacity key={options.id} className=" flex-row items-center rounded-md">
               <Image source={options.image} />
-            </Pressable>
+            </TouchableOpacity>
           ))}
         </View>
-        <AirtimeSelect />
+        {
+          type === 0 ? (
+            <AirtimeSelect />
+          ) : (
+            <DataSelect />
+          )
+        }
         <Pressable onPress={handlePurchase} className="bg-blue-700 py-4 my-6 rounded-md">
           <Text className="text-white text-center">Continue to Payment</Text>
         </Pressable>

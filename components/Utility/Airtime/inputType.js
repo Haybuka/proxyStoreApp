@@ -9,7 +9,7 @@ function InputType({ title, placeholder, value, handleSet, ...rest }) {
   }
 
   return (
-    <View className="border border-gray-200 px-3 py-2 rounded-lg">
+    <View className="border border-gray-200 px-3 py-2 rounded-lg my-4">
       <Text className="">{title}</Text>
       <TextInput
         placeholder={placeholder}
