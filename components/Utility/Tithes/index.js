@@ -59,10 +59,10 @@ const Tithes = () => {
   //  const [pageData,setPageData] = useState()
 
 
-  const handleTitleChange = (utility) => {
-    navigation.navigate("Payment", {
-      utility
-    })
+  const handleTitleChange = (data) => {
+    const utility = { ...data, type: 'tithe' }
+
+    navigation.navigate("Payment", { utility })
   }
 
 

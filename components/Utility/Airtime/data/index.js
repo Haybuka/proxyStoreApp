@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import InputType from '../inputType';
 import AirtimeButton from '../button';
 import { useNavigation } from '@react-navigation/native';
+import UtilityInput from '../../../utilityInput';
 
 function DataSelect() {
   const [amount, setAmount] = useState()
@@ -32,9 +32,9 @@ function DataSelect() {
 
   return (
     <AirtimeButton handlePurchase={handlePurchase} >
-      <InputType title={'Data Plan'} placeholder={'Select data plan'} inputMode='numeric' value={plan} handleSet={handlePlanSet} />
-      <InputType title={'Phone Number'} placeholder={'Enter phone number'} inputMode='numeric' value={phonenumber} handleSet={handleNumberSet} />
-      <InputType title={'Amount'} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
+      <UtilityInput title={'Data Plan'} placeholder={'Select data plan'} inputMode='numeric' value={plan} handleSet={handlePlanSet} />
+      <UtilityInput title={'Phone Number'} placeholder={'Enter phone number'} inputMode='numeric' value={phonenumber} handleSet={handleNumberSet} />
+      <UtilityInput title={'Amount'} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
     </AirtimeButton>
   );
 }

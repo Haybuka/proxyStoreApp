@@ -4,8 +4,27 @@ import { FlatList, Modal, Pressable, SafeAreaView, Text, TextInput, TouchableOpa
 import cls from 'classnames'
 
 import Header from '../components/Utility/Lifestyle/header';
+import UtilityInput from '../components/utilityInput';
+import UtilityButton from '../components/utilityButton';
 
-
+const countries = [
+  {
+    state: "Lagos",
+    code: "LAG",
+  },
+  {
+    state: "Ekiti",
+    code: "EKT",
+  },
+  {
+    state: "Ogun",
+    code: "OGN",
+  },
+  {
+    state: "Oyo state",
+    code: "OYO",
+  }
+]
 
 const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
 
@@ -13,25 +32,11 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
 
   const [modal, setModal] = useState(false)
   const [st, setSt] = useState('')
+  const [address, setAddress] = useState('')
 
-  const countries = [
-    {
-      state: "Lagos",
-      code: "LAG",
-    },
-    {
-      state: "Ekiti",
-      code: "EKT",
-    },
-    {
-      state: "Ogun",
-      code: "OGN",
-    },
-    {
-      state: "Oyo state",
-      code: "OYO",
-    }
-  ]
+  const handleAddressSet = (text) => {
+    setAddress(text)
+  }
   const handleReceipt = () => {
     navigation.navigate("Receipt", {
       details: {
@@ -53,47 +58,41 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
   return (
     <Screen>
       <Header title={'Location'} />
+
       <View className="py-6 px-1">
-        <View className="border border-gray-200 px-3 py-2 rounded-lg">
-          <Text className="">Address</Text>
-          <TextInput
-            placeholder='Enter your delivery address'
-            className="text-gray-400 py-2 "
-          />
-        </View>
-        <View className="my-3 flex-row">
-          <View className="border flex-1 mr-2 border-gray-200 px-3 py-2 rounded-lg">
-            <Text className="">State</Text>
-            <View className="relative justify-center">
-              <TextInput
-                placeholder='Select state'
-                className="text-gray-400 py-2 "
-                value={st.state}
-              />
-              <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
-                <Text>H</Text>
-              </Pressable>
+        <UtilityButton handlePayment={handleReceipt}>
+          <UtilityInput title={`Address`} placeholder={'Enter your delivery address'} value={address} handleSet={handleAddressSet} />
+
+          <View className="my-3 flex-row">
+            <View className="border flex-1 mr-2 border-gray-200 px-3 py-2 rounded-lg">
+              <Text className="">State</Text>
+              <View className="relative justify-center">
+                <TextInput
+                  placeholder='Select state'
+                  className="text-gray-400 py-2 "
+                  value={st.state}
+                />
+                <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
+                  <Text>H</Text>
+                </Pressable>
+              </View>
+            </View>
+            <View className="border flex-1 mr-2 border-gray-200 px-3 py-2 rounded-lg">
+              <Text className="">City</Text>
+              <View className="relative justify-center">
+                <TextInput
+                  placeholder='Select state'
+                  className="text-gray-400 py-2 "
+                  value={st.state}
+                />
+                <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
+                  <Text>H</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
-          <View className="border flex-1 mr-2 border-gray-200 px-3 py-2 rounded-lg">
-            <Text className="">City</Text>
-            <View className="relative justify-center">
-              <TextInput
-                placeholder='Select state'
-                className="text-gray-400 py-2 "
-                value={st.state}
-              />
-              <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
-                <Text>H</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-        <View className="bg-white">
-          <Pressable onPress={handleReceipt} className="bg-blue-700 py-4 my-6 rounded-md">
-            <Text className="text-white text-center">Continue to Payment</Text>
-          </Pressable>
-        </View>
+        </UtilityButton>
+
       </View>
       <Modal visible={modal}>
         <Screen >

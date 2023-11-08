@@ -27,11 +27,10 @@ const data = [
 const Electricity = () => {
   const navigation = useNavigation()
 
-  const handleTitleChange = (utility) => {
-    navigation.navigate("Payment", {
-      utility,
-      type: 'electricity'
-    })
+  const handleTitleChange = (data) => {
+    const utility = { ...data, type: 'electricity' }
+
+    navigation.navigate("Payment", { utility })
   }
 
   return (

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Pressable } from 'react-native';
-import InputType from '../inputType';
+import { View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AirtimeButton from '../button';
+import UtilityInput from '../../../utilityInput';
 
 
 const airtimeOptions = ['100', '200', '500', '1000']
@@ -34,7 +34,7 @@ function AirtimeSelect(props) {
 
   return (
     <AirtimeButton handlePurchase={handlePurchase}>
-      <InputType title={'Amount'} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
+      <UtilityInput title={'Amount'} placeholder={'0.00'} inputMode='numeric' value={amount} handleSet={handleAmountSet} />
       <View className="flex-row justify-between items-center my-6">
         {
           airtimeOptions.map((option) => (
@@ -44,7 +44,7 @@ function AirtimeSelect(props) {
           ))
         }
       </View>
-      <InputType title={'Phone Number'} placeholder={'Enter phone number'} inputMode='numeric' value={phonenumber} handleSet={handleNumberSet} />
+      <UtilityInput title={'Phone Number'} placeholder={'Enter phone number'} inputMode='numeric' value={phonenumber} handleSet={handleNumberSet} />
     </AirtimeButton>
   );
 }
