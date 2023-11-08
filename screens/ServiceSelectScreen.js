@@ -7,76 +7,76 @@ import Header from '../components/Utility/Lifestyle/header';
 import LocationIcon from '../assets/icon/account/location';
 import ServiceList from '../components/Utility/Lifestyle/serviceList';
 
-
+const data = [
+  {
+    name: 'Item One',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 1,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Two',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 2,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Three',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 3,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Four',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 4,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Five',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 5,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Six',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 6,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Item Seven',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 7,
+    description: "Description of item",
+    amount: '5,000'
+  },
+  {
+    name: 'Last Eight',
+    address: "153, Ikorodu rd, Palm ...",
+    image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
+    id: 8,
+    description: "Description of item",
+    amount: '5,000'
+  }
+]
 
 const ServiceSelectScreen = ({ route, route: { params }, navigation }) => {
 
-  const data = [
-    {
-      name: 'Item One',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 1,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Two',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 2,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Three',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 3,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Four',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 4,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Five',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 5,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Six',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 6,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Item Seven',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 7,
-      description: "Description of item",
-      amount: '5,000'
-    },
-    {
-      name: 'Last Eight',
-      address: "153, Ikorodu rd, Palm ...",
-      image: require('../assets/icon/utilities/lifestyle/BarberCutz.png'),
-      id: 8,
-      description: "Description of item",
-      amount: '5,000'
-    }
-  ]
+
 
   const [serviceType, setServiceType] = useState(0)
   const [selectedId, setSelectedId] = useState(0)

@@ -10,7 +10,6 @@ function UtilityInput({ title, placeholder, value, handleSet, ...rest }) {
   return (
     <View className="border border-gray-200 px-3 py-2 rounded-lg my-4">
       <Text className="">{title}</Text>
-      <Text className="">hi</Text>
       <TextInput
         placeholder={placeholder}
         className="text-gray-400 py-2 "
