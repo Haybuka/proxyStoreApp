@@ -5,6 +5,7 @@ import LifestyleFilters from '../components/Utility/Lifestyle/filters';
 
 import lifestyleOptions from '../utils/lifestyleOptions';
 import Header from '../components/Utility/Lifestyle/header';
+import LifestyleOptions from '../utils/lifestyleOptions';
 
 const LifestyleScreen = ({ route, route: { params }, navigation }) => {
   const [pageTitle, setPageTitle] = useState("")
@@ -21,7 +22,7 @@ const LifestyleScreen = ({ route, route: { params }, navigation }) => {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {
-          lifestyleOptions(pageTitle.label)
+          lifestyleOptions(pageTitle?.label)
         }
       </ScrollView>
 

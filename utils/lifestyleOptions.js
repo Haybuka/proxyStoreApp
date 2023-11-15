@@ -6,7 +6,7 @@ import Pedicure from "../components/Utility/Lifestyle/pedicure"
 import Massage from "../components/Utility/Lifestyle/massage"
 import Facials from "../components/Utility/Lifestyle/facials"
 
-export default lifestyleOptions = (value = "deefault") => {
+export default LifestyleOptions = (value = "default", options) => {
   switch (value.toLowerCase()) {
     case "barbing":
       return <Barber />

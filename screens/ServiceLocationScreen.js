@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Screen from '../components/Screen'
 import { FlatList, Modal, Pressable, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import cls from 'classnames'
+import { MaterialCommunityIcons } from '@expo/vector-icons/'
 
 import Header from '../components/Utility/Lifestyle/header';
 import UtilityInput from '../components/utilityInput';
@@ -73,7 +73,8 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
                   value={st.state}
                 />
                 <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
-                  <Text>H</Text>
+
+                  <MaterialCommunityIcons name='chevron-down' size={25} />
                 </Pressable>
               </View>
             </View>
@@ -86,7 +87,7 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
                   value={st.state}
                 />
                 <Pressable className="absolute right-2 bg-white" onPress={handleModal}>
-                  <Text>H</Text>
+                  <MaterialCommunityIcons name='chevron-down' size={25} />
                 </Pressable>
               </View>
             </View>

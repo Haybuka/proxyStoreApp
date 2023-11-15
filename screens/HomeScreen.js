@@ -79,7 +79,7 @@ function HomeScreen() {
             </View>
           </View>
           <View>
-            <MaterialCommunityIcons name='bell' size={20} />
+            <MaterialCommunityIcons name='bell-outline' size={20} />
           </View>
         </View>
         <ScrollView>
