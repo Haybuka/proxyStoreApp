@@ -12,7 +12,7 @@ const Fuel = () => {
   return (
     <View className="">
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <SearchVendor css={'flex-1'} />
+        <SearchVendor css={'flex-1'} filterButton />
 
         <Text className="text-lg text-gray-600"> {FuelProduct.length} Results</Text>
         {
