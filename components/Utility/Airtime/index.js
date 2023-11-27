@@ -31,17 +31,26 @@ const networkOptions = [
     name: "9mobile",
     image: require('../../../assets/icon/Airtime/9Mobile.png'),
     id: 4
+  },
+  {
+    label: "9mobile",
+    name: "9mobile",
+    image: require('../../../assets/icon/Airtime/Mtn.png'),
+    id: 5
   }
 ]
 
 const Airtime = () => {
   const [type, setType] = useState(0)
-
+  const [selected, setSelected] = useState(-1)
 
   const handleType = (id) => {
     setType(id)
   }
 
+  const handleCarrierSelect = (carrier) => {
+    setSelected(carrier.id)
+  }
 
   return (
     <ScrollView>
@@ -50,12 +59,18 @@ const Airtime = () => {
           <TypeSelect title={'Airtime'} value={0} userSelect={type} handleTypePress={handleType} />
           <TypeSelect title={'Data'} value={1} userSelect={type} handleTypePress={handleType} />
         </View>
-        <View className="flex-row justify-between items-center my-6">
-          {networkOptions.map((options) => (
-            <TouchableOpacity key={options.id} className=" flex-row items-center rounded-md">
-              <Image source={options.image} />
-            </TouchableOpacity>
-          ))}
+        <View className="my-6">
+          <FlatList
+            data={networkOptions}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            ItemSeparatorComponent={<View className="mx-2"></View>}
+            renderItem={({ item }) => (
+              <TouchableOpacity key={item.id} onPress={() => handleCarrierSelect(item)} className={cls(" flex-row items-center rounded-md", selected === item.id && 'border-2 border-[#0D5FFF]')}>
+                <Image source={item.image} />
+              </TouchableOpacity>
+            )}
+          />
         </View>
         {
           type === 0 ? (

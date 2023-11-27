@@ -38,7 +38,7 @@ function AirtimeSelect(props) {
       <View className="flex-row justify-between items-center my-6">
         {
           airtimeOptions.map((option) => (
-            <Pressable onPress={() => handleAmountSet(option)} key={option} className=" flex-row items-center rounded-md border border-blue-700 py-2 px-6">
+            <Pressable onPress={() => handleAmountSet(option)} key={option} className=" flex-row items-center rounded-md border-2 font-bold border-[#0D5FFF] py-2 px-6">
               <Text>{option}</Text>
             </Pressable>
           ))

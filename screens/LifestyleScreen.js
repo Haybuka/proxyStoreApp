@@ -21,6 +21,7 @@ const LifestyleScreen = ({ route, route: { params }, navigation }) => {
       <LifestyleFilters />
 
       <ScrollView showsVerticalScrollIndicator={false}>
+
         {
           lifestyleOptions(pageTitle?.label)
         }

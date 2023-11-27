@@ -11,6 +11,7 @@ import ServiceSelectScreen from '../screens/ServiceSelectScreen';
 import CalenderDisplayScreen from '../screens/CalenderDisplayScreen';
 import ServiceLocationScreen from '../screens/ServiceLocationScreen';
 import ReceiptScreen from '../screens/ReceiptScreen';
+import FilterScreen from '../screens/FilterScreen';
 
 
 
@@ -26,6 +27,11 @@ function HomeNavigator(props) {
       // navigationBarHidden: true
     }} initialRouteName='Index'>
       <Stack.Screen name="Index" component={HomeScreen} />
+      {/* Gas and fuel Screen */}
+      <Stack.Screen
+        name="Filter"
+        component={FilterScreen}
+      />
       <Stack.Screen
         name="Utility"
         component={UtilityScreen}

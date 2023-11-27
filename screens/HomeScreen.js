@@ -4,66 +4,12 @@ import Screen from '../components/Screen';
 import { MaterialCommunityIcons } from '@expo/vector-icons/'
 
 import UtilityCard from '../components/Home/UtilityCard';
+import Products from '../utils/productList';
 
 
 
 
-const Utils = [
-  // {
-  //   name: "Transportation",
-  //   label: "Transportation",
-  //   icon: "transport",
-  //   id: 1
-  // },
-  {
-    name: "Gas",
-    label: "Cooking Gas",
-    icon: "gas",
-    id: 2
-  },
-  {
-    name: "Fuel",
-    label: "Fuel",
-    icon: "fuel",
-    id: 3
-  },
-  {
-    name: "Lifestyle",
-    label: "Lifestyle",
-    icon: "lifestyle",
-    id: 4
-  },
-  {
-    name: "Electricity",
-    label: "Electricity",
-    icon: "electricity",
-    id: 5
-  },
-  {
-    name: "airtime & data",
-    label: "Airtime / Data",
-    icon: "data",
-    id: 6
-  },
-  {
-    name: "Tithes & offering",
-    label: "Tithes & Offering ",
-    icon: "church",
-    id: 8
-  },
-  // {
-  //   name: "Water",
-  //   label: "Water",
-  //   icon: "water",
-  //   id: 7
-  // },
-  {
-    name: "Codevolution",
-    label: "Codevolution",
-    icon: "Codevolution",
-    id: 8
-  },
-]
+
 
 function HomeScreen() {
   return (
@@ -87,7 +33,7 @@ function HomeScreen() {
             <Text className="text-lg">Utilities</Text>
             <View className="flex-row flex-wrap my-3 ">
               {
-                Utils.map((item, id) => (
+                Products.map((item, id) => (
                   <UtilityCard key={id} item={item} />
                 ))
               }
