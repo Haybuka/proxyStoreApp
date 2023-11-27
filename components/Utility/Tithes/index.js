@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, Image, Pressable, Text, View } from 'react-native'
 import ArrowRight from '../../../assets/icon/ArrowRight'
 import { useNavigation } from '@react-navigation/native'
+import SearchVendor from '../../searchVendor'
 
 const data = [
   {
@@ -67,7 +68,8 @@ const Tithes = () => {
 
 
   return (
-    <View className="px-2 py-8">
+    <View className="px-2 ">
+      <SearchVendor css={'flex-1'} placeholder='Search church' />
       <FlatList
         data={data}
         keyExtractor={(data => data.id.toString())}

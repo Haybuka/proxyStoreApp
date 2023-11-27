@@ -12,6 +12,7 @@ import CalenderDisplayScreen from '../screens/CalenderDisplayScreen';
 import ServiceLocationScreen from '../screens/ServiceLocationScreen';
 import ReceiptScreen from '../screens/ReceiptScreen';
 import FilterScreen from '../screens/FilterScreen';
+import PurchaseScreen from '../screens/PurchaseScreen';
 
 
 
@@ -31,6 +32,10 @@ function HomeNavigator(props) {
       <Stack.Screen
         name="Filter"
         component={FilterScreen}
+      />
+      <Stack.Screen
+        name="Purchase"
+        component={PurchaseScreen}
       />
       <Stack.Screen
         name="Utility"

@@ -37,14 +37,7 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
   const handleAddressSet = (text) => {
     setAddress(text)
   }
-  const handleReceipt = () => {
-    navigation.navigate("Receipt", {
-      details: {
-        ...params,
-        showDetail: true
-      }
-    })
-  }
+
 
   const handleModal = () => {
     setModal(prev => !prev)
@@ -55,6 +48,14 @@ const ServiceLocationScreen = ({ route, route: { params }, navigation }) => {
     setSt(state)
   }
 
+  const handleReceipt = () => {
+    navigation.navigate("Receipt", {
+      details: {
+        ...params,
+        showDetail: true
+      }
+    })
+  }
   return (
     <Screen>
       <Header title={'Location'} />

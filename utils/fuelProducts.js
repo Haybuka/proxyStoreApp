@@ -1,31 +1,31 @@
 const FuelProduct = [
   {
-    title: "Oando Nigeria",
+    name: "Oando Nigeria",
     description: "153, Ikorodu rd, Palmgroove.",
     amt: 300,
     id: 8,
-    img: require("../assets/icon/utilities/Fuel/Oando.png")
+    image: require("../assets/icon/utilities/Fuel/Oando.png")
   },
   {
-    title: "Enyo",
+    name: "Enyo",
     description: "153, Ikorodu rd, Palmgroove.",
     amt: 300,
     id: 8,
-    img: require("../assets/icon/utilities/Fuel/Enyo.png")
+    image: require("../assets/icon/utilities/Fuel/Enyo.png")
   },
   {
-    title: "Mobil Nigeria Ltd.",
+    name: "Mobil Nigeria Ltd.",
     description: "153, Ikorodu rd, Palmgroove.",
     amt: 300,
     id: 8,
-    img: require("../assets/icon/utilities/Fuel/Mobil.png")
+    image: require("../assets/icon/utilities/Fuel/Mobil.png")
   },
   {
-    title: "NNPC",
+    name: "NNPC",
     description: "153, Ikorodu rd, Palmgroove.",
     amt: 300,
     id: 8,
-    img: require("../assets/icon/utilities/Fuel/Nnpc.png")
+    image: require("../assets/icon/utilities/Fuel/Nnpc.png")
   },
 ]
 

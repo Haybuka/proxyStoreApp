@@ -7,7 +7,7 @@ function FuelList({ product }) {
 
   const navigation = useNavigation()
 
-  const { title, description, amt, img } = product
+  const { name, description, amt, image } = product
 
   const handleNavigate = () => {
     navigation.navigate("Filter", {
@@ -19,12 +19,12 @@ function FuelList({ product }) {
     <TouchableOpacity onPress={handleNavigate} className="flex-row items-center my-5">
       <View className="mr-4">
         <Image
-          source={img}
+          source={image}
         />
       </View>
       <View className="flex items-center flex-row flex-1 ">
         <View className="flex-1">
-          <Text className="text-lg">{title}</Text>
+          <Text className="text-lg">{name}</Text>
           <Text className="text-gray-700">{description}</Text>
         </View>
         <View>

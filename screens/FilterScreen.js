@@ -27,14 +27,22 @@ function FilterScreen({ route, route: { params }, navigation }) {
     setPageTitle(route?.name)
   }, [route?.name])
 
+  console.log(params)
+
+  const handleFilterApply = () => {
+    console.log(navigation)
+    navigation.navigate("Purchase", {
+      ...params
+    })
+  }
 
   return (
     <Screen>
       <Header title={pageTitle} />
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <View className=" mb-10">
+        <View className=" mb-6">
           <Accordion title={'Location'}>
-            <SearchVendor css={'flex-1'} placeholder='Search location' filterButton />
+            <SearchVendor css={'flex-1'} placeholder='Search location' />
           </Accordion>
           <Accordion title={'Price'}>
             <View className="flex-row items-center">
@@ -49,7 +57,7 @@ function FilterScreen({ route, route: { params }, navigation }) {
 
           </Accordion>
         </View>
-        <Pressable className="bg-blue-700 py-4 my-6 rounded-md">
+        <Pressable onPress={handleFilterApply} className="bg-blue-700 py-4 my-6 rounded-md">
           <Text className="text-white text-center">Apply filters</Text>
         </Pressable>
       </ScrollView>
