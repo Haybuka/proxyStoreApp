@@ -58,7 +58,7 @@ function PurchaseScreen({ route, route: { params }, navigation }) {
   return (
     <Screen>
       <Header title={"Make Purchase"} />
-      <ScrollView showsHorizontalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View className="text-center justify-center items-center mb-10">
           <Image
             source={params?.image}

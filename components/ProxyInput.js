@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
-import { EyeIcon, EyeSlashIcon } from "react-native-heroicons/outline";
+import { EyeIcon, EyeSlashIcon, } from "react-native-heroicons/outline";
 
 function ProxyInput({ title, icon, ...rest }) {
   const [isVisible, setIsVisible] = useState(false)

@@ -22,7 +22,7 @@ function AppNavigator() {
     setCurrentScreen(name)
   }
   return (
-    <Tab.Navigator initialRouteName='Home'
+    <Tab.Navigator initialRouteName='Auth'
       screenListeners={({ route }) => {
 
         setFocusedScreen(route?.state?.index)
